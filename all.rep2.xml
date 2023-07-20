@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='SNAPP' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.base.evolution.alignment:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.pkgmgmt:beast.base.core:beast.base.inference.util:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood" required="BEAST.base v2.7.3:SNAPP v1.6.1" version="2.7">
+
+    <data
+id="cyanolyca"
+spec="Alignment"
+dataType="integer"
+name="rawdata">
+        <sequence id="seq_lyc_cuc_cuc_sorted" spec="Sequence" taxon="lyc_cuc_cuc_sorted" totalcount="4" value="0000020020011002100001000222000002200020100010200002100020000202000001202022100000020220100002010000200000000210000010101000000000200000000200000200200000212010202010202010020020100000020010001001221020201220020100000100002000120000000100110200202100022200200020001120000202001020000000000200010220001020002100102002220002200010222200000000002000020010200000200001200020222200000002220002221200000202000000000000000000200221200201001012020122000000222200220001000222000020202220001000010020200000000002000201121220010100001000022000200000201020010102000000000002002010000002022222000200020020021002000000000000000000000000200020002100010100000002002002120000002100012110200200002002010100012020100000000110001100110100001000110200000000002020201200000020011000000212000000000000110002201010001000000000000000002120010002001000120000000002000010200202000200010000000210000012002001102201000100200000000200000000002110020020000000000020002020000100200200022020002000001000000010011002100210020000200020000000022021000000212000002100001000020001201020020002200020220200102220202"/>
+        <sequence id="seq_lyc_cuc_gua_sorted" spec="Sequence" taxon="lyc_cuc_gua_sorted" totalcount="4" value="0200201000000202001201000222210012000021200000020002021000000211000010202020002001000200000022000000010000001101101000000000100100110200001210010000012012002022021102200100020020022000201001002002020200000220021000120020002010210000010000200002202020012222211100000122000212000020001000000000000020100200002001011202002000200011222220200001002000221100202002221011000000200220000002000000220210020002000000001001000002200200001200010121000012011000022201002100000221011020212002010001002020210001101001000000210020202100022020220100000000001220000100200120012002002000000012002202001100100000000022200101202000000001000011001002012001201002000020001010021200102000011211100000000011100000002020000101000000010100001002000002002000000200012000200202001011000000000200100021002102000011210002000100001011000010002002000000110010020000000002001200101222120001100000010000110112002000000000001000201020020200110000002020020022000200000022002021200011002211022000002000100000200000000000001210000000201120000120020100100002201020002201002011021000200000021002200021221001001210012"/>
+        <sequence id="seq_lyc_cuc_hon_sorted" spec="Sequence" taxon="lyc_cuc_hon_sorted" totalcount="4" value="0210000000000202000020000222200002000220200000020002000000100202010200211020011010000200000002000000002002000200000200000100100010220200000200000200000000002220002100200000010021002122022000002002020001000220020020002000022000220000000000200002212000002202200001000022000212000020010000201002000010020000001000000002002021200001222120000000012010220001202202220201001000220202000001000000220202000002000000000000000010200200000200200022000222001002122212000200002220000120202002200000000010200000000201000000222020202102002020220100200210201020000200000020000002002001001002202202010200000000100002000000002000010000010000010000002000000000000100002000020200002000111220200020000002200000002020010001100000000000000020000002000002000011002001200200001010000000002000000120002000000012200200000000000200020020000000000012000000022012010101020000100211000000000002000200000002002000000000000000200000200200000200002020021020000200022020002020000000012200001100001200000000000000000002010222000000200020000020020200010002202020022200002011010100100100020211210000220000002220022"/>
+        <sequence id="seq_lyc_cuc_mit_sorted" spec="Sequence" taxon="lyc_cuc_mit_sorted" totalcount="4" value="0000100000000202000201000221200022010020200000020002010000000202200010202020002000000100000202200010000020000201000002010000001000200210002200000000001101202021002002200000020210002000200001002102020200000220020002200020002010220001000000201010102020112102200000021022110200020020000010010000100021100000102010002202002100220100222221001020002000222010202002220000020000220200200002000000221200220002200002002020021002200200000210000022000022010000022200011100000222020022102000000000002020101120000010010000222020202020022020220000020000001000100100200020102002012000020022002202000201102000000002200001002020000000000011000000212000010002100000212000020200002001020021200002000102000000002111000000020000010100002001100001002100000000002100200201101200000000010200110000012001000010200002200200000001000001002001000000000200010000001002000100100202021000000000001200200011001010000000000000200011000200000010002020020122010200002021112020200000002200022000002000000010010100100000000220000010200000200000020100000012202010002200002100220100200000010002200021220000002220002"/>
+        <sequence id="seq_lyc_pul_sorted" spec="Sequence" taxon="lyc_pul_sorted" totalcount="4" value="2001000202200010020000221000001200002000112202121210000202022002001000002100000200202202012000001201000100220200020000000021020001002001210002202022000000200020000000020002222000000000000200222022000000020001200200000002200202221220201022000000200002000200000000200000002000100202220102000020002020000001012000000020000000002000000100020101200202000010022020000000000202000000022122002120000000001010022220210200200200021000020000000002202020200210000000000220220002200010200000000120100222200000020000101020222002000000200202000121202002021022001120022002000110200200200200000000200020000202002200022020010101102220202200000201000020000010022000002200000022020120020020221000120002001021200020001010002002210021010000020220000120122000200000010020022000200212200000002000200020002100000000020022220000202200122000101202000001020200200022100002120002000020002220100001102002220100020010220022120200002112001002221002200000102021200200010200012000000000102102222022010202002002000220000000102201010002022002200000001100002201200220222001020020020001200002002201000020021022100"/>
+    </data>
+
+    <map name="Uniform" >beast.base.inference.distribution.Uniform</map>
+
+    <map name="Exponential" >beast.base.inference.distribution.Exponential</map>
+
+    <map name="LogNormal" >beast.base.inference.distribution.LogNormalDistributionModel</map>
+
+    <map name="Normal" >beast.base.inference.distribution.Normal</map>
+
+    <map name="Beta" >beast.base.inference.distribution.Beta</map>
+
+    <map name="Gamma" >beast.base.inference.distribution.Gamma</map>
+
+    <map name="LaplaceDistribution" >beast.base.inference.distribution.LaplaceDistribution</map>
+
+    <map name="prior" >beast.base.inference.distribution.Prior</map>
+
+    <map name="InverseGamma" >beast.base.inference.distribution.InverseGamma</map>
+
+    <map name="OneOnX" >beast.base.inference.distribution.OneOnX</map>
+
+    <run id="mcmc" spec="MCMC" chainLength="5000000" storeEvery="1000">
+        <state id="state" spec="State" storeEvery="1000">
+            <stateNode id="Tree.cyanolyca" spec="beast.base.evolution.tree.ClusterTree" clusterType="upgma" nodetype="snap.NodeData">
+                <taxa id="snap.cyanolyca" spec="snap.Data" dataType="integerdata">
+                    <rawdata idref="cyanolyca"/>
+                    <taxonset id="cuc_cuc" spec="TaxonSet">
+                        <taxon id="lyc_cuc_cuc_sorted" spec="Taxon"/>
+                    </taxonset>
+                    <taxonset id="cuc_gua" spec="TaxonSet">
+                        <taxon id="lyc_cuc_gua_sorted" spec="Taxon"/>
+                    </taxonset>
+                    <taxonset id="lyc_pul" spec="TaxonSet">
+                        <taxon id="lyc_pul_sorted" spec="Taxon"/>
+                    </taxonset>
+                    <taxonset id="cuc_hon" spec="TaxonSet">
+                        <taxon id="lyc_cuc_hon_sorted" spec="Taxon"/>
+                    </taxonset>
+                    <taxonset id="cuc_mit" spec="TaxonSet">
+                        <taxon id="lyc_cuc_mit_sorted" spec="Taxon"/>
+                    </taxonset>
+                </taxa>
+                <parameter id="RealParameter.0" spec="parameter.RealParameter" lower="0.0" name="clock.rate" upper="0.0">1.0</parameter>
+            </stateNode>
+            <parameter id="u" spec="parameter.RealParameter" lower="0.0" name="stateNode">1.0</parameter>
+            <parameter id="v" spec="parameter.RealParameter" lower="0.0" name="stateNode">1.0</parameter>
+            <parameter id="lambda" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.01</parameter>
+            <parameter id="coalescenceRate" spec="parameter.RealParameter" name="stateNode">10.0</parameter>
+        </state>
+        <distribution id="posterior" spec="CompoundDistribution">
+            <distribution id="prior" spec="CompoundDistribution">
+                <prior id="lambdaPrior.cyanolyca" name="distribution" x="@lambda">
+                    <OneOnX id="OneOnX.2" name="distr"/>
+                </prior>
+                <distribution id="snapprior.cyanolyca" spec="snap.likelihood.SnAPPrior" coalescenceRate="@coalescenceRate" lambda="@lambda" tree="@Tree.cyanolyca">
+                    <parameter id="alpha" spec="parameter.RealParameter" estimate="false" lower="0.0" name="alpha">11.75</parameter>
+                    <parameter id="beta" spec="parameter.RealParameter" estimate="false" lower="0.0" name="beta">109.73</parameter>
+                    <parameter id="kappa" spec="parameter.RealParameter" estimate="false" lower="0.0" name="kappa">1.0</parameter>
+                </distribution>
+                <prior id="uPrior.cyanolyca" name="distribution" x="@u">
+                    <OneOnX id="OneOnX.4" name="distr"/>
+                </prior>
+                <prior id="vPrior.cyanolyca" name="distribution" x="@v">
+                    <OneOnX id="OneOnX.5" name="distr"/>
+                </prior>
+            </distribution>
+            <distribution id="likelihood" spec="CompoundDistribution">
+                <distribution id="treeLikelihood.cyanolyca" spec="snap.likelihood.SnAPTreeLikelihood" data="@snap.cyanolyca" non-polymorphic="false" pattern="coalescenceRate" tree="@Tree.cyanolyca">
+                    <siteModel id="MutationSiteModel.cyanolyca" spec="SiteModel">
+                        <parameter id="mutationRate" spec="parameter.RealParameter" estimate="false" name="mutationRate">1.0</parameter>
+                        <parameter id="shape" spec="parameter.RealParameter" estimate="false" name="shape">2.0</parameter>
+                        <parameter id="proportionInvariant" spec="parameter.RealParameter" estimate="false" name="proportionInvariant">0.0</parameter>
+                        <substModel id="MutationModel" spec="snap.likelihood.SnapSubstitutionModel" coalescenceRate="@coalescenceRate" mutationRateU="@u" mutationRateV="@v"/>
+                    </siteModel>
+                </distribution>
+            </distribution>
+        </distribution>
+        <operator id="NodeSwapper" spec="snap.operators.NodeSwapper" tree="@Tree.cyanolyca" weight="0.5"/>
+        <operator id="NodeBudger" spec="snap.operators.NodeBudger" size="0.5" tree="@Tree.cyanolyca" weight="0.5"/>
+        <operator id="TreeScaler" spec="snap.operators.ScaleOperator" scaleFactor="0.25" tree="@Tree.cyanolyca" weight="0.5"/>
+        <operator id="GammaMover" spec="snap.operators.GammaMover" coalescenceRate="@coalescenceRate" scale="0.5" weight="8.0"/>
+        <operator id="RateMixer" spec="snap.operators.RateMixer" coalescenceRate="@coalescenceRate" scaleFactors="0.25" tree="@Tree.cyanolyca" weight="1.0"/>
+        <operator id="MutationMover" spec="snap.operators.MutationMover" u="@u" v="@v" weight="1.0" window="0.1"/>
+        <operator id="lambdaScaler" spec="snap.operators.ScaleOperator" parameter="@lambda" scaleFactor="0.75" weight="1.0"/>
+        <logger id="tracelog" spec="Logger" fileName="rep2.all.log" logEvery="1000" model="@posterior">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+            <log idref="u"/>
+            <log idref="v"/>
+            <log id="ThetaLogger" spec="snap.ThetaLogger" coalescenceRate="@coalescenceRate"/>
+            <log id="TreeHeightLogger" spec="beast.base.evolution.tree.TreeHeightLogger" tree="@Tree.cyanolyca"/>
+        </logger>
+        <logger id="screenlog" spec="Logger" logEvery="1000">
+            <log idref="posterior"/>
+            <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+        </logger>
+        <logger id="treelog" spec="Logger" fileName="rep2.all.trees" logEvery="1000" mode="tree">
+            <log id="TreeWithMetaDataLogger.cyanolyca" spec="beast.base.evolution.TreeWithMetaDataLogger" tree="@Tree.cyanolyca">
+                <metadata id="theta" spec="snap.RateToTheta" coalescenceRate="@coalescenceRate"/>
+            </log>
+        </logger>
+    </run>
+
+</beast>

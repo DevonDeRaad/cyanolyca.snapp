@@ -1,0 +1,161 @@
+---
+title: "Cyanolyca SNAPP tree"
+author: "Devon DeRaad"
+date: '2023-01-11'
+output: html_document
+---
+
+```{r}
+library(slendr)
+library(ggtree)
+library(adegenet)
+library(StAMPP)
+library(vcfR)
+library(ggplot2)
+library(introgress)
+library(SNPfiltR)
+```
+
+```{r}
+#read vcf of SNPs called from Scrub-Jay reference genome filtered with gatk and vcftools
+v<-read.vcfR("~/Desktop/cyanolyca/cyano.vcftools.filtered.1kb.recode.vcf")
+v
+table(extract.gt(v),exclude = NULL)
+extract.gt(v)[c(1:10),c(1:5)]
+
+#make NJ tree
+gen<-vcfR2genlight(v)
+pop(gen)<-gen@ind.names
+sample.div <- stamppNeisD(gen, pop = FALSE)
+plot(nj(sample.div), type = "unrooted", cex = 1)
+
+#filter to 100% completeness
+v.100<-missing_by_snp(v, cutoff = 1)
+table(extract.gt(v.100),exclude = NULL)
+v.100
+
+#remove invariant sites (there are invariant SNPs called where all 5 samples have the homozygous derived haplotype compared to the scrub-jay reference genome)
+v.100<-min_mac(v.100, 1)
+v.100
+
+#make NJ tree
+gen<-vcfR2genlight(v.100)
+pop(gen)<-gen@ind.names
+sample.div <- stamppNeisD(gen, pop = FALSE)
+plot(nj(sample.div), type = "unrooted", cex = 1)
+
+#remove outgroup
+v.100.noout<-v.100[,1:5]
+v.100.noout<-min_mac(v.100.noout, 1)
+v.100.noout
+```
+
+### write vcf to disk as a nexus alignment
+```{r}
+#extract genotype matrix
+vcf.gt<-extract.gt(v.100, element = "GT", as.numeric = F, convertNA = T)
+#convert 'NA' to '?'
+vcf.gt[is.na(vcf.gt)]<-"?"
+#convert '0/0' to '0'
+vcf.gt[vcf.gt == "0/0"]<-"0"
+#convert '0/1' to '1'
+vcf.gt[vcf.gt == "0/1"]<-"1"
+#convert '1/0' to '1'
+vcf.gt[vcf.gt == "1/0"]<-"1"
+#convert '1/1' to '2'
+vcf.gt[vcf.gt == "1/1"]<-"2"
+#check that this worked, the only values in the matrix should now be 0, 1, and 2
+table(vcf.gt)
+#transpose matrix
+vcf.gt <- t(vcf.gt)
+#check that this looks right, rows should be samples, columns should be SNPs
+vcf.gt[1:5,1:5]
+#write to disk as nexus file
+#uncomment to overwrite alignment
+#ape::write.nexus.data(x = vcf.gt, file = "~/Desktop/cyanolyca/cyanolyca.100pcomplete.snps.nex", format = "DNA", interleaved = FALSE)
+
+#repeat for no outgroup
+vcf.gt<-extract.gt(v.100.noout, element = "GT", as.numeric = F, convertNA = T)
+#convert 'NA' to '?'
+vcf.gt[is.na(vcf.gt)]<-"?"
+#convert '0/0' to '0'
+vcf.gt[vcf.gt == "0/0"]<-"0"
+#convert '0/1' to '1'
+vcf.gt[vcf.gt == "0/1"]<-"1"
+#convert '1/0' to '1'
+vcf.gt[vcf.gt == "1/0"]<-"1"
+#convert '1/1' to '2'
+vcf.gt[vcf.gt == "1/1"]<-"2"
+#check that this worked, the only values in the matrix should now be 0, 1, and 2
+table(vcf.gt)
+#transpose matrix
+vcf.gt <- t(vcf.gt)
+#check that this looks right, rows should be samples, columns should be SNPs
+vcf.gt[1:4,1:5]
+#write to disk as nexus file
+#uncomment to overwrite
+#ape::write.nexus.data(x = vcf.gt, file = "~/Desktop/cyanolyca/cyanolyca.100pnoout.snps.nex", format = "DNA", interleaved = FALSE)
+
+#read in the nexus file you just wrote out, to check that it looks right
+nex.file <- scan(file=paste0("~/Desktop/cyanolyca/cyanolyca.100pnoout.snps.nex"), what = "character", sep = "\n",quiet = TRUE)
+nex.file
+```
+
+### use SED in a terminal window to change the data type from DNA to SNP
+```{bash, eval=FALSE}
+cd /Users/devder/Desktop/cyanolyca
+sed -i '' "s/DNA/SNP/g" cyanolyca.100pcomplete.snps.nex
+sed -i '' "s/DNA/SNP/g" cyanolyca.100pnoout.snps.nex
+```
+
+### Now, open beauti and choose file > template > SNAPP. Import the first nexus as ‘alignment’, assign samples to tips, leave parameters default except, uncheck the box “Include non-polymorphic sites”. Remove any calibrations in the ‘Prior’ window (if needed). Reduce chain length to 5M, and name tree and log filenames according to the specific replicate so they don’t overwrite eachother. Then repeat for each nexus until all of your beauti .xml input files are ready for SNAPP.
+
+### Execute two replicates with and without the outgroup included using the following code:
+```{bash, eval=FALSE}
+#!/bin/sh
+#
+#SBATCH --job-name=snapp               # Job Name
+#SBATCH --nodes=1             # 40 nodes
+#SBATCH --ntasks-per-node=15               # 40 CPU allocation per Task
+#SBATCH --partition=bi            # Name of the Slurm partition used
+#SBATCH --chdir=/home/d669d153/work/cyanolyca/snapp    # Set working d$
+#SBATCH --mem-per-cpu=800            # memory requested
+#SBATCH --array=1-2
+#SBATCH --time=2000
+
+#run beast 2.7.1
+/home/d669d153/work/beast.2.7.1/beast/bin/beast -threads 15 all.rep$SLURM_ARRAY_TASK_ID.xml
+
+#!/bin/sh
+#
+#SBATCH --job-name=snapp               # Job Name
+#SBATCH --nodes=1             # 40 nodes
+#SBATCH --ntasks-per-node=15               # 40 CPU allocation per Task
+#SBATCH --partition=bi            # Name of the Slurm partition used
+#SBATCH --chdir=/home/d669d153/work/cyanolyca/snapp    # Set working d$
+#SBATCH --mem-per-cpu=800            # memory requested
+#SBATCH --array=1-2
+#SBATCH --time=2000
+
+#run beast 2.7.1
+/home/d669d153/work/beast.2.7.1/beast/bin/beast -threads 15 trimmed.rep$SLURM_ARRAY_TASK_ID.xml
+```
+
+### visualize the output log files in tracer to check convergence
+```{r}
+knitr::include_graphics("/Users/devder/Desktop/cyanolyca/snapp/tracer.output.png")
+```
+
+### Combine all trees sampled after 1M iterations (i.e., post-burn-in) using logcombiner
+
+### visualize trees
+```{r}
+#consensus tree with posterior probabilities 
+knitr::include_graphics("/Users/devder/Desktop/cyanolyca/snapp/alltips.combinedruns.consensus.tree.png")
+
+#all 8K trees sampled from the posterior distribution overlaid in densitree
+knitr::include_graphics("/Users/devder/Desktop/cyanolyca/snapp/densitree.png")
+
+#all 8K trees sampled from the posterior distribution overlaid in densitree, add root canal topology
+knitr::include_graphics("/Users/devder/Desktop/cyanolyca/snapp/densitree.rootcanal.png")
+```
