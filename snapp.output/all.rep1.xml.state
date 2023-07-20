@@ -1,0 +1,18 @@
+<itsabeastystatewerein version='2.0' sample='5000000'>
+<statenode id='Tree.cyanolyca'>((0:0.028811063832344323,((1:6.418275850628083E-4,4:6.418275850628083E-4)5:0.009952139343536337,3:0.010593966928599145)6:0.018217096903745178)7:0.02614044059338176,2:0.054951504425726085)8:0.0</statenode>
+<statenode id='u'>u[1 1] (0.0,Infinity): 16.23227232633853 </statenode>
+<statenode id='v'>v[1 1] (0.0,Infinity): 0.5158909021414191 </statenode>
+<statenode id='lambda'>lambda[1 1] (0.0,Infinity): 12.463205777411899 </statenode>
+<statenode id='coalescenceRate'>coalescenceRate[9 1] (-Infinity,Infinity): 17.143172193210887 13.469670294221277 25.476849545355616 15.403672671933368 16.066930891603757 14.42672985882274 17.93950627108838 127.09911641472594 16.50671102835164 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"NodeSwapper","p":"NaN","accept":2,"reject":199635,"acceptFC":2,"rejectFC":199202,"rejectIv":55842,"rejectOp":55842},
+{"id":"NodeBudger","p":0.24602718079264196,"accept":34424,"reject":165433,"acceptFC":34332,"rejectFC":165063,"rejectIv":0,"rejectOp":0},
+{"id":"TreeScaler","p":0.625500273438574,"accept":29705,"reject":169963,"acceptFC":29687,"rejectFC":169553,"rejectIv":0,"rejectOp":0},
+{"id":"GammaMover","p":1.1798085781866063,"accept":765675,"reject":2434172,"acceptFC":762152,"rejectFC":2430412,"rejectIv":0,"rejectOp":0},
+{"id":"RateMixer","p":0.014262268608107124,"accept":801,"reject":399756,"acceptFC":777,"rejectFC":398872,"rejectIv":0,"rejectOp":0},
+{"id":"MutationMover","p":"NaN","accept":6973,"reject":392767,"acceptFC":6940,"rejectFC":391873,"rejectIv":140054,"rejectOp":140054},
+{"id":"lambdaScaler","p":0.1846183546982483,"accept":118022,"reject":282673,"acceptFC":117218,"rejectFC":282556,"rejectIv":0,"rejectOp":0}
+]}
+-->
